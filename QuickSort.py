@@ -10,5 +10,7 @@ def quickSort(arre, pri, pultimo):
             pri + 1
         else:
             arre[pi], arre[pri] = arre[pri], arre[pi]
+    
     quickSort(arre,pri ,pi)
     quickSort(arre,pi,len(arre) )
+    return arre
