@@ -1,6 +1,3 @@
-def sortList(A):
-    """Método que ordena una lista."""
-    return A
 
 def Median_Of_Median(A,i):
     """Método que busca la mediana de la lista."""
