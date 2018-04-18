@@ -1,4 +1,4 @@
-def sortList(A):
+def sort5(A):
     """Método que ordena una lista."""
     for i in range(1, len(A)):
         b = A[i]
