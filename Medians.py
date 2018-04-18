@@ -2,13 +2,12 @@ from sort import sort5
 
 def median_of_medians(A,i):
     """Método que busca la mediana de la lista."""
-<<<<<<< HEAD
-   sublistas = [A[j:j+5] for j in range(0,len(A),5)]
-   medianas = [sort.sort5(sublista)[len(sublista)//2] for sublista in sublistas]
+    sublistas = [A[j:j+5] for j in range(0,len(A),5)]
+    medianas = [sort5(sublista)[len(sublista)//2] for sublista in sublistas]
     
     #-----------------Aquí se evalúa el caso base de las medianas---------------------------
     if (len(medianas) <= 5):
-        pivot = sort.sort5(medianas)[len(medianas)//2]
+        pivot = sort5(medianas)[len(medianas)//2]
     else:
         pivot = median_of_medians(medianas,len(medianas)//2)
 
