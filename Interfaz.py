@@ -23,10 +23,10 @@ class Interfaz:
             * con las diferentes opciones para el usuario.
         """
         print("\n--- Bienvenido al Menu Principal ---")
-        print("1. Modificar el arreglo A.")
-        print("2. Quicksort.")
-        print("3. Median of Medians.")
-        print("4. Salir.")
+        print("\n\n1. Modificar el arreglo A.")
+        print("\n2. Quicksort.")
+        print("\n3. Median of Medians.")
+        print("\n4. Salir.")
         pass
 
     # Método el cual imprimirá el sub-menú para el Quicksort.
