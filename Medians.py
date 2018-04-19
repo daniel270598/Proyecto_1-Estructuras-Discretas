@@ -32,3 +32,5 @@ class Medianas:
 
     def timing_Median_of_Medians(self):
         cProfile.runctx('self.median_of_medians(self.A, len(self.A)//2)', globals(),locals())
+        # Se le manda el método como una hilera, se le manda las variables globales y las locales
+        # así para que los encuentre. Por ejemplo antes no encontraba el objeto self.
