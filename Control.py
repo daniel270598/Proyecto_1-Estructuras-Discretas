@@ -82,7 +82,7 @@ class Control:
         cInterfaz = Interfaz()                                      # Creo el objeto Interfaz.
         ms = Medianas()
         #___________________________________________________________ Inicio del ciclo while - Iterar menú.
-        while (opc2 != 7):
+        while (opc2 != 6):
             os.system('cls')                                        # Limpia pantalla.
             cInterfaz.menu_Median_of_Medians()                      # Llama método externo.
             opc2 = int(input("\nIngrese la opcion: "))              # Aquí almacenamos en opc2 lo que digite el usuario.
@@ -102,8 +102,7 @@ class Control:
                 input("\nPresione TECLA para continuar...")         # Solo para visualizar resultado.
             elif opc2 == 5:                                         # Opción Timing Sort5.
                 os.system("cls")
-            elif opc2 == 6:                                         # Opción Exportar CSV.
-                os.system("cls")
+                
             #------------------------------------------------------- Fin bloque de evaluación.
         #___________________________________________________________ Fin bloque while.
         pass

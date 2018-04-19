@@ -2,7 +2,9 @@ from sort import sort5                                              # Importo so
 from timing_sort import timing_sort,sort_time_save                  # Importa el timing sort.
 import cProfile                                                     # Importo cProfile para realizar profilling.
 import pstats                                                       # Lo importo ya que me permitira transformar la información del timing.
-import random, csv, timeit
+import random, csv, timeit                                          # Importa módulos externos.
+import matplotlib.pyplot as plt                                     # Importa el módulo de matplotlib.
+import numpy as np                                                  # Importa numpy.
 
 # __________________________________________________________________ Clase Medianas.
 class Medianas:
@@ -47,13 +49,11 @@ class Medianas:
         #p = pstats.Stats('medians.csv') ------Esto es solo si guardo el resultado del profiling
         #p.sort_stats('cumulative').print_stats(10) -------Esto imprime el resultado del profiling.
         print("\n---- Ahora casos varios con elementos aleatorios ----\n")
-        self.timing_medians(5,100,5)                       #Llama para probar timing diferentes casos.
-
-    def graficar_Median_of_Medians(self):
-        """
-            * Método graficar_Median_of_Medians:
-            * Se encarga de graficar lo que sería el método de median_of_medians().
-        """
+        self.exportar_Median_of_Medians_CSV()              # Llama para probar timing diferentes casos.
+        self.graficar_Median_of_Medians()                  # Llama para mostrar una gráfica.
+        self.A.clear()                                     # Elimina los elementos en A.
+        self.A = None                                      # Le asigna a A None(NULL).
+        print("\n Atención usuario, ha sido exportado el respectivo documento CSV con los resultados anteriores.")
 
     # -------------------------------------------------------------- Método el cual cálcula los tiempos en diferentes casos.
     def timing_medians(self,start, stop, step):
@@ -99,3 +99,40 @@ class Medianas:
     def export_Sort5_CSV(self):
         """ Método para exportar en CSV los resultados del timing de sort5. """
         sort_time_save()
+
+    # -------------------------------------------------------------- Método el cual muestra una gráfica de medianas.
+    def graficar_Median_of_Medians(self):
+        """
+            * Método graficar_Median_of_Medians:
+            * Se encarga de graficar lo que sería el método de median_of_medians().
+        """
+        csvarchivo = open('Cuadernos/medians.csv')                  # Abre el archivo.
+        cont = 0                                                    # Defino cont
+        if csvarchivo:
+            entrada = csv.reader(csvarchivo)                        # Leer todos los registros.
+            ns = []                                                 # Creando ns.
+            tiempos = []                                            # Creando tiempos.
+            # ----------------------------------------------------- Avanzo en entrada.   
+            for reg in entrada:
+                if cont == 0:
+                    cont = 1
+                else:
+                    linea = reg[0]                                  # Leer los campos.
+                    _tupla1 = linea.partition(';')
+                    _tupla2 = _tupla1[2].partition(';')
+                    n = _tupla2[0]
+                    tiempo = _tupla2[2]
+                    cont = cont+1
+                    ns.append(int(n))                               # Agregar a lo último.
+                    tiempos.append(float(tiempo))                   # Agregar a lo último.
+            plt.plot(ns,tiempos, label = "time(n)")
+            plt.title("Gráfica Medianas")
+            plt.show()
+        csvarchivo.close()
+    
+    # -------------------------------------------------------------- Método el cual muestra una gráfica de sort5.
+    def crear_Grafica_Sort5(self):
+        """
+            * Método crear_Grafica_Sort5:
+            * Método el cual produce una gráfica para mostrar sort5.
+        """
