@@ -4,7 +4,10 @@ import cProfile                                                     # Importo cP
 # __________________________________________________________________ Clase Medianas.
 class Medianas:
 
-    def median_of_medians(A,i):
+    def __init__(self,A):
+        self.A = A
+
+    def median_of_medians(self,A,i):
         """Método que busca la mediana de la lista."""
         sublistas = [A[j:j+5] for j in range(0,len(A),5)]
         medianas = [sort5(sublista)[len(sublista)//2] for sublista in sublistas]
@@ -13,7 +16,7 @@ class Medianas:
         if (len(medianas) <= 5):
             pivot = sort5(medianas)[len(medianas)//2]
         else:
-            pivot = median_of_medians(medianas,len(medianas)//2)
+            pivot = self.median_of_medians(medianas,len(medianas)//2)
 
         #------------ Se realiza la particion del pivot para obtener la mediana de las medianas-------------
         l = [j for j in A if j < pivot]
@@ -21,11 +24,12 @@ class Medianas:
 
         k = len(l)
         if i < k:
-            return median_of_medians(l,i)
+            return self.median_of_medians(l,i)
         elif i > k:
-            return median_of_medians(h,i-k-1)
+            return self.median_of_medians(h,i-k-1)
         else: #pivot = k
             return pivot
 
-    def timing_Median_of_Medians():
-        cProfile.run(median_of_medians())
+    def timing_Median_of_Medians(self):
+        cProfile.run(self.median_of_medians(self.A, len(self.A)))
+        pass
