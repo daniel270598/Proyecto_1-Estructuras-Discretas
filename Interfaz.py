@@ -53,6 +53,5 @@ class Interfaz:
         print("3. Prueba de sort5.")
         print("4. Timing Medianas.")
         print("5. Timing sort5.")
-        print("6. Exportar CSV.")
-        print("\n7. Salir.")
+        print("\n6. Salir.")
         pass
