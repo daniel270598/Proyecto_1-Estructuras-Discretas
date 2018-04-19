@@ -9,11 +9,6 @@ class Interfaz:
         * La cual desarrollara métodos de impresión 
         * para poder interactuar con el usuario.
     """
-    
-    # Método Constructor.
-    def __init__(self):
-        #self.principalMenu()
-        pass
 
     # Método el cual imprimirá el menú principal.
     def menu_Principal(self):
@@ -23,9 +18,9 @@ class Interfaz:
             * con las diferentes opciones para el usuario.
         """
         print("\n--- Bienvenido al Menu Principal ---")
-        print("\n\n1. Modificar el arreglo A.")
-        print("\n2. Quicksort.")
-        print("\n3. Median of Medians.")
+        print("\n1. Modificar el arreglo A.")
+        print("2. Quicksort.")
+        print("3. Median of Medians.")
         print("\n4. Salir.")
         pass
 

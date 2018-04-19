@@ -26,24 +26,26 @@ class Control:
             * diferentes métodos para continuar con el
             * flujo del programa.
         """
-        os.system('cls')                                            # Limpia pantalla
-        cInterfaz = Interfaz()                                      # Creo el objeto Interfaz.
-        cInterfaz.menu_Principal()                                  # Llamamos al método externo.
-        opc = input("\n\nIngrese la opcion: ")                      # Aquí almacenamos en opc lo que digite el usuario.
-        # _________________________________________________________ Bloque condicional el cual evalúa lo que
-        #                                                           ingreso el usuario.
-        if opc == 1:                                                # Modificar Lista
+        opc = 0
+        while (opc != 4):
             os.system('cls')                                        # Limpia pantalla
-            pass
-        elif opc == 2:                                              # Submenu Quicksort.
-            os.system('cls')                                        # Limpia pantalla
-            cInterfaz.menu_Quicksort()                              # Llama método externo.
-        elif opc == 3:                                              # Submenu Medianas.
-            os.system('cls')                                        # Limpia pantalla
-            cInterfaz.menu_Median_of_Medians()                      # Llama método externo.
-        elif opc == 4:                                              # Salir.
-            exit()                                                  # Sale del programa.
-        # _________________________________________________________ Fin del bloque.
+            cInterfaz = Interfaz()                                  # Creo el objeto Interfaz.
+            cInterfaz.menu_Principal()                              # Llamamos al método externo.
+            opc = int(input("\n\nIngrese la opcion: "))             # Aquí almacenamos en opc lo que digite el usuario.
+            # ______________________________________________________ Bloque condicional el cual evalúa lo que
+            #                                                        ingreso el usuario.
+            if opc == 1:                                            # Modificar Lista
+                os.system('cls')                                    # Limpia pantalla
+            elif opc == 2:                                          # Submenu Quicksort.
+                os.system('cls')                                    # Limpia pantalla
+                cInterfaz.menu_Quicksort()                          # Llama método externo.
+            elif opc == 3:                                          # Submenu Medianas.
+                os.system('cls')                                    # Limpia pantalla
+                cInterfaz.menu_Median_of_Medians()                  # Llama método externo.
+            elif opc == 4:                                          # Salir.
+                pass#exit()                                         # Sale del programa.
+            # ______________________________________________________ Fin del bloque.
+        pass
 
 # ------------------------------------------------------------------ Bloque Principal - Main
 if __name__ == "__main__":
