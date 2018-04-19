@@ -4,8 +4,8 @@
 """
 
 from Interfaz import Interfaz                                       # Importa la clase Interfaz.
-import QuickSort as qs                                              # Importa el Quicksort.
-import Medians as ms                                                # Importa el módulo Medianas.
+import QuickSort                                                    # Importa el Quicksort.
+from Medians import Medianas                                        # Importa el módulo Medianas la clase Medianas.
 import os                                                           # Importa para accesar al sistema.
 import msvcrt                                                       # Importa.
 
@@ -78,16 +78,17 @@ class Control:
 
     # -------------------------------------------------------------- Método el cual permite manejar el menu - Medians.
     def control_menu_Medians(self):
-        opc2 = 0                                                    # Inicializa opc2.
+        opc2 = 1                                                    # Inicializa opc2.
         cInterfaz = Interfaz()                                      # Creo el objeto Interfaz.
         #___________________________________________________________ Inicio del ciclo while - Iterar menú.
         while (opc2 != 7):
             os.system('cls')                                        # Limpia pantalla.
             cInterfaz.menu_Median_of_Medians()                      # Llama método externo.
-            opc2 = int(input("\nIngrese la opcion: "))              # Aquí almacenamos en opc2 lo que digite el usuario.
+            if opc2 != 1: opc2 = int(input("\nIngrese la opcion: ")) # Aquí almacenamos en opc2 lo que digite el usuario.
             #------------------------------------------------------- Bloque de evaluación para menu quicksort.
             if opc2 == 1:                                           # Opción crear Lista.
                 a = self.crearLista()
+                ms = Medianas(a)                                    # Creamos un objeto para interactuar con la clase Medians.
             elif opc2 == 2:                                         # Opción Probar Medianas.
                 os.system("cls")
                 ms.median_of_medians(a,len(a)//2)
