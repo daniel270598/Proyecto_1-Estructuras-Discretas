@@ -1,4 +1,4 @@
-import proyecto, random, csv, timeit
+import Medians, random, csv, timeit
 a = None
 b = 0
 
@@ -10,7 +10,7 @@ def timing_medians(start, stop, step):
         size = start + n
         a = random.sample(population, size)
         print("Size={}".format(size))
-        tn = timeit.timeit("proyecto. median_of_medians(a,b)", number=500, globals=globals())
+        tn = timeit.timeit("Medians. median_of_medians(a,b)", number=500, globals=globals())
         results.append((size, tn))
     return results
 
