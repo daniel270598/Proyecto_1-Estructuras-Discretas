@@ -31,5 +31,4 @@ class Medianas:
             return pivot
 
     def timing_Median_of_Medians(self):
-        cProfile.run(self.median_of_medians(self.A, len(self.A)))
-        pass
+        cProfile.runctx('self.median_of_medians(self.A, len(self.A)//2)', globals(),locals())

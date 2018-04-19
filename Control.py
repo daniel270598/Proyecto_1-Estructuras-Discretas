@@ -89,6 +89,7 @@ class Control:
             if opc2 == 1:                                           # Opción crear Lista.
                 a = self.crearLista()
                 ms = Medianas(a)                                    # Creamos un objeto para interactuar con la clase Medians.
+                opc2 = 0                                            # Asignamos a opc2 el valor 0 para no quedarse en la opción 1.
             elif opc2 == 2:                                         # Opción Probar Medianas.
                 os.system("cls")
                 ms.median_of_medians(a,len(a)//2)
@@ -97,6 +98,8 @@ class Control:
                 ms.sort5(a)
             elif opc2 == 4:                                         # Opción Timing Medianas.
                 os.system("cls")
+                ms.timing_Median_of_Medians()                       # Llama un método externo.
+                input("\nPresione TECLA para continuar...")         # Solo para visualizar resultado.
             elif opc2 == 5:                                         # Opción Timind Sort5.
                 os.system("cls")
             elif opc2 == 6:                                         # Opción Exportar CSV.
