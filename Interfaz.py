@@ -31,10 +31,13 @@ class Interfaz:
             * con las diferentes opciones para el usuario en base a el Quicksort.
         """
         print("\n--- Bienvenido al Menu Quicksort ---")
-        print("\n1. Modificar el arreglo A.")
-        print("2. Quicksort.")
-        print("3. Median of Medians.")
-        print("\n4. Salir.")
+        print("\n1. Crear lista.")
+        print("2. Prueba del QuickSort Random")
+        print("3. Prueba del  QuickSort.")
+        print("4. Timing QuickSort Random.")
+        print("5. Timing QuickSort.")
+        print("6. Exportar CSV.")
+        print("\n7. Salir.")
         pass
 
     # Método el cual imprimirá el sub-menú para Median of Medians.
