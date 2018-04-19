@@ -86,10 +86,20 @@ class Control:
             cInterfaz.menu_Median_of_Medians()                      # Llama método externo.
             opc2 = int(input("\nIngrese la opcion: "))              # Aquí almacenamos en opc2 lo que digite el usuario.
             #------------------------------------------------------- Bloque de evaluación para menu quicksort.
-            if opc2 == 1:
-                self.crearLista()
-            elif opc2 == 2:
-                os.system("cls")                    
+            if opc2 == 1:                                           # Opción crear Lista.
+                a = self.crearLista()
+            elif opc2 == 2:                                         # Opción Probar Medianas.
+                os.system("cls")
+                ms.median_of_medians(a,len(a)//2)
+            elif opc2 == 3:                                         # Opción Probar Sort5.
+                os.system("cls")
+                ms.sort5(a)
+            elif opc2 == 4:                                         # Opción Timing Medianas.
+                os.system("cls")
+            elif opc2 == 5:                                         # Opción Timind Sort5.
+                os.system("cls")
+            elif opc2 == 6:                                         # Opción Exportar CSV.
+                os.system("cls")
             #------------------------------------------------------- Fin bloque de evaluación.
         #___________________________________________________________ Fin bloque while.
         pass
