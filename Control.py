@@ -78,29 +78,29 @@ class Control:
 
     # -------------------------------------------------------------- Método el cual permite manejar el menu - Medians.
     def control_menu_Medians(self):
-        opc2 = 1                                                    # Inicializa opc2.
+        opc2 = 0                                                    # Inicializa opc2.
         cInterfaz = Interfaz()                                      # Creo el objeto Interfaz.
+        ms = Medianas()
         #___________________________________________________________ Inicio del ciclo while - Iterar menú.
         while (opc2 != 7):
             os.system('cls')                                        # Limpia pantalla.
             cInterfaz.menu_Median_of_Medians()                      # Llama método externo.
-            if opc2 != 1: opc2 = int(input("\nIngrese la opcion: ")) # Aquí almacenamos en opc2 lo que digite el usuario.
+            opc2 = int(input("\nIngrese la opcion: "))              # Aquí almacenamos en opc2 lo que digite el usuario.
             #------------------------------------------------------- Bloque de evaluación para menu quicksort.
             if opc2 == 1:                                           # Opción crear Lista.
                 a = self.crearLista()
                 ms = Medianas(a)                                    # Creamos un objeto para interactuar con la clase Medians.
-                opc2 = 0                                            # Asignamos a opc2 el valor 0 para no quedarse en la opción 1.
             elif opc2 == 2:                                         # Opción Probar Medianas.
                 os.system("cls")
                 ms.median_of_medians(a,len(a)//2)
             elif opc2 == 3:                                         # Opción Probar Sort5.
                 os.system("cls")
-                ms.sort5(a)
+                ms.sort(a)
             elif opc2 == 4:                                         # Opción Timing Medianas.
                 os.system("cls")
                 ms.timing_Median_of_Medians()                       # Llama un método externo.
                 input("\nPresione TECLA para continuar...")         # Solo para visualizar resultado.
-            elif opc2 == 5:                                         # Opción Timind Sort5.
+            elif opc2 == 5:                                         # Opción Timing Sort5.
                 os.system("cls")
             elif opc2 == 6:                                         # Opción Exportar CSV.
                 os.system("cls")

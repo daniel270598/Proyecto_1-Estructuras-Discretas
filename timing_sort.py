@@ -1,5 +1,4 @@
-import sort_list, random, csv, timeit
-a = None
+import sort, random, csv, timeit
 
 def timing_sort(start, stop, step):
     global a
@@ -8,12 +7,12 @@ def timing_sort(start, stop, step):
     for n in range(start, stop, step):
         size = start + n
         a = random.sample(population, size)
-        print("Size={}".format(size))
-        tn = timeit.timeit("sort_list.sortList(a)", number=500, globals=globals())
+        tn = timeit.timeit("sort.sort5(a)", number=500, globals=globals())
+        print("\tn={}\tSize = {}\tTiempo={}".format(n,size,tn))
         results.append((size, tn))
     return results
 
-def sort_time_save(filename="data/sort_list.csv", start=10, stop=1000, step=100):
+def sort_time_save(filename="data/sort5.csv", start=10, stop=1000, step=100):
     results = timing_sort(start, stop, step)
     with open(filename, 'w', newline='') as csvfile:
         writer = csv.writer(csvfile, delimiter=';',quotechar='|', quoting=csv.QUOTE_MINIMAL)
