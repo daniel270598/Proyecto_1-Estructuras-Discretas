@@ -1,5 +1,7 @@
 from sort import sort5                                              # Importo sort5 del módulo sort.
 import cProfile                                                     # Importo cProfile para realizar profilling.
+import pstats                                                       # Lo importo ya que me permitira transformar la información del timing.
+import csv
 
 # __________________________________________________________________ Clase Medianas.
 class Medianas:
@@ -31,6 +33,32 @@ class Medianas:
             return pivot
 
     def timing_Median_of_Medians(self):
-        cProfile.runctx('self.median_of_medians(self.A, len(self.A)//2)', globals(),locals())
+        """
+            * Método timing_Median_of_Medians:
+            * Se encarga de dar los tiempos del método de median_of_medians() 
+            * con sus diferentes operaciones de forma detallada.
+        """
+        cProfile.runctx('self.median_of_medians(self.A, len(self.A)//2)', globals(),locals(),'medians.csv')
+        p = pstats.Stats('medians.csv')
+        p.sort_stats('cumulative').print_stats(10)
         # Se le manda el método como una hilera, se le manda las variables globales y las locales
         # así para que los encuentre. Por ejemplo antes no encontraba el objeto self.
+
+    def graficar_Median_of_Medians(self):
+        """
+            * Método graficar_Median_of_Medians:
+            * Se encarga de graficar lo que sería el método de median_of_medians().
+        """
+
+    def exportar_Median_of_Medians_CSV(self, filename="Cuadernos/medians.csv", start=10, stop=100, step=5):
+        """
+            * Método exportar_Median_of_Medians_CSV:
+            * Método el cual exporta un archivo CSV con diferentes casos.
+        
+        results = timing_bubble(start, stop, step)
+        with open(filename, 'w', newline='') as csvfile:
+            writer = csv.writer(csvfile, delimiter=';',quotechar='|', quoting=csv.QUOTE_MINIMAL)
+            writer.writerow(['i', 'n', 'time(n)'])
+            for i, (n, tn) in enumerate(results):
+                writer.writerow([i, n, tn])
+        """
