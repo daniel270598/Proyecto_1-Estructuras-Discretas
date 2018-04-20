@@ -8,10 +8,16 @@ import numpy as np                                                  # Importa nu
 
 # __________________________________________________________________ Clase Medianas.
 class Medianas:
-
+    # -------------------------------------------------------------- Constructor.
     def __init__(self,A=None):
         self.A = A
+    
+    # -------------------------------------------------------------- Método que permite modificar el atributo.
+    def set_A(self,A):
+        self.A.clear()
+        self.A = A                                                  # Asigna al atributo el parámetro.
 
+    # -------------------------------------------------------------- Método que saca la mediana de las medianas.
     def median_of_medians(self,A,i):
         """Método que busca la mediana de la lista."""
         sublistas = [A[j:j+5] for j in range(0,len(A),5)]
@@ -35,6 +41,7 @@ class Medianas:
         else: #pivot = k
             return pivot
 
+    # -------------------------------------------------------------- Método el cual llama a los demas metodos para realizar timing.
     def timing_Median_of_Medians(self):
         """
             * Método timing_Median_of_Medians:
@@ -49,11 +56,33 @@ class Medianas:
         #p = pstats.Stats('medians.csv') ------Esto es solo si guardo el resultado del profiling
         #p.sort_stats('cumulative').print_stats(10) -------Esto imprime el resultado del profiling.
         print("\n---- Ahora casos varios con elementos aleatorios ----\n")
-        self.exportar_Median_of_Medians_CSV()              # Llama para probar timing diferentes casos.
-        self.graficar_Median_of_Medians()                  # Llama para mostrar una gráfica.
-        self.A.clear()                                     # Elimina los elementos en A.
-        self.A = None                                      # Le asigna a A None(NULL).
+        self.exportar_Median_of_Medians_CSV()                       # Llama para probar timing diferentes casos.
+        self.graficar_Median_of_Medians()                           # Llama para mostrar una gráfica.
+        self.A.clear()                                              # Elimina los elementos en A.
+        self.A = None                                               # Le asigna a A None(NULL).
         print("\n Atención usuario, ha sido exportado el respectivo documento CSV con los resultados anteriores.")
+        pass
+
+    # -------------------------------------------------------------- Método el cual llama a los demas metodos para realizar timing.
+    def timing_Sort_5(self): # Este método solo se encarga de invocar los métodos necesarios para el timing de sort5.
+        """
+            * Método timing_Median_of_Medians:
+            * Se encarga de dar los tiempos del método de median_of_medians() 
+            * con sus diferentes operaciones de forma detallada. 
+            * Este llama los métodos necesarios para los resultados del timing sort5.
+        """
+        if self.A != None: 
+            print("\n---- Caso específico: A = {} ----\n".format(self.A))
+            cProfile.runctx('self.sort(self.A)', globals(),locals())
+            # Se le manda el método como una hilera, se le manda las variables globales y las locales
+            # así para que los encuentre. Por ejemplo antes no encontraba el objeto self.
+        #p = pstats.Stats('sort5.csv') ------Esto es solo si guardo el resultado del profiling
+        #p.sort_stats('cumulative').print_stats(10) -------Esto imprime el resultado del profiling.
+        print("\n---- Ahora casos varios con elementos aleatorios ----\n")
+        self.export_Sort5_CSV()                                     # Llama para probar timing diferentes casos.
+        self.graficar_Sort5()                                       # Llama para mostrar una gráfica.
+        print("\n Atención usuario, ha sido exportado el respectivo documento CSV con los resultados anteriores.")
+        pass
 
     # -------------------------------------------------------------- Método el cual cálcula los tiempos en diferentes casos.
     def timing_medians(self,start, stop, step):
@@ -106,7 +135,7 @@ class Medianas:
             * Método graficar_Median_of_Medians:
             * Se encarga de graficar lo que sería el método de median_of_medians().
         """
-        csvarchivo = open('Cuadernos/medians.csv')                  # Abre el archivo.
+        csvarchivo = open('datos/medians.csv')                      # Abre el archivo.
         cont = 0                                                    # Defino cont
         if csvarchivo:
             entrada = csv.reader(csvarchivo)                        # Leer todos los registros.
@@ -131,8 +160,31 @@ class Medianas:
         csvarchivo.close()
     
     # -------------------------------------------------------------- Método el cual muestra una gráfica de sort5.
-    def crear_Grafica_Sort5(self):
+    def graficar_Sort5(self):
         """
             * Método crear_Grafica_Sort5:
             * Método el cual produce una gráfica para mostrar sort5.
         """
+        csvarchivo = open('datos/sort5.csv')                        # Abre el archivo.
+        cont = 0                                                    # Defino cont
+        if csvarchivo:
+            entrada = csv.reader(csvarchivo)                        # Leer todos los registros.
+            ns = []                                                 # Creando ns.
+            tiempos = []                                            # Creando tiempos.
+            # ----------------------------------------------------- Avanzo en entrada.   
+            for reg in entrada:
+                if cont == 0:
+                    cont = 1
+                else:
+                    linea = reg[0]                                  # Leer los campos.
+                    _tupla1 = linea.partition(';')
+                    _tupla2 = _tupla1[2].partition(';')
+                    n = _tupla2[0]
+                    tiempo = _tupla2[2]
+                    cont = cont+1
+                    ns.append(int(n))                               # Agregar a lo último.
+                    tiempos.append(float(tiempo))                   # Agregar a lo último.
+            plt.plot(ns,tiempos, label = "time(n)")
+            plt.title("Gráfica Sort5")
+            plt.show()
+        csvarchivo.close()
