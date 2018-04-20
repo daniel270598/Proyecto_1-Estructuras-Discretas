@@ -10,6 +10,9 @@ class QuickSort:
     def __init__(self,Q=None):
         self.Q = Q
     
+    def setQ(self,Q):
+        self.Q = Q
+    
     def quickSortRandom(self, Q, inicio, final):
         if Q!= None:
             # Definimos el caso base del quicksort

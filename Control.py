@@ -63,7 +63,7 @@ class Control:
     def control_menu_Quicksort(self):
         opc2 = 0                                                    # Inicializa opc2.
         cInterfaz = Interfaz()  
-        qs = QuickSort()                                    # Creo el objeto Interfaz.
+        qs = QuickSort([6,3,2,7,5,2,4,8,777])                       # Creo el objeto Interfaz.
         #___________________________________________________________ Inicio del ciclo while - Iterar menú.
         while (opc2 != 7): # ///////////// Numero a poner el de la opcion SALIR ///////////////////////
             os.system('cls')                                            # Limpia pantalla
@@ -73,16 +73,16 @@ class Control:
             if opc2 == 1:
                 os.system("cls")
                 a = self.crearLista()
-                qs = QuickSort(a)
+                qs.setQ(a)
             elif opc2 == 2:
                 os.system("cls")
-                qs.quickSortRandom(a,0,len(a)-1)
-                print(a)
+                qs.quickSortRandom(qs.Q,0,len(qs.Q)-1)
+                print(qs.Q)
                 input("\nPresione TECLA para continuar...")                 
             elif opc2 == 3:
                 os.system("cls")
-                qs.quickSort(a,0,len(a)-1)
-                print(a)
+                qs.quickSort(qs.Q,0,len(qs.Q)-1)
+                print(qs.Q)
                 input("\nPresione TECLA para continuar...")                
             elif opc2 == 4:
                 os.system("cls")
