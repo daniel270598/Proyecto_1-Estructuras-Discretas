@@ -65,13 +65,8 @@ class Control:
         cInterfaz = Interfaz()  
         qs = QuickSort()                                    # Creo el objeto Interfaz.
         #___________________________________________________________ Inicio del ciclo while - Iterar menú.
-<<<<<<< HEAD
         while (opc2 != 7): # ///////////// Numero a poner el de la opcion SALIR ///////////////////////
             os.system('cls')                                            # Limpia pantalla
-=======
-        while (opc2 != 4): # ///////////// Numero a poner el de la opcion SALIR ///////////////////////
-            os.system('cls')                                        # Limpia pantalla
->>>>>>> origin/Control
             cInterfaz.menu_Quicksort()                              # Llama método externo.
             opc2 = int(input("\nIngrese la opcion: "))              # Aquí almacenamos en opc2 lo que digite el usuario.
             #------------------------------------------------------- Bloque de evaluación para menu quicksort.
