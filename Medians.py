@@ -59,6 +59,8 @@ class Medianas:
         self.exportar_Median_of_Medians_CSV()                       # Llama para probar timing diferentes casos.
         self.graficar_Median_of_Medians()                           # Llama para mostrar una gráfica.
         print("\n Atención usuario, ha sido exportado el respectivo documento CSV con los resultados anteriores.")
+        self.A.clear()
+        self.A = None
         pass
 
     # -------------------------------------------------------------- Método el cual llama a los demas metodos para realizar timing.

@@ -72,6 +72,7 @@ class Control:
             #------------------------------------------------------- Bloque de evaluación para menu quicksort.
             if opc2 == 1:
                 os.system("cls")
+                print("---- Creando Lista ----")
                 a = self.crearLista()
                 qs.setQ(a)
             elif opc2 == 2:

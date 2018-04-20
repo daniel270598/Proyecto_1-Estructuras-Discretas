@@ -8,12 +8,25 @@ import numpy as np                                                  # Importa nu
 class QuickSort:
 
     def __init__(self,Q=None):
+        """ 
+            Constructor del QuickSort
+           *Atributo lista Q
+        """
+        
         self.Q = Q
     
     def setQ(self,Q):
+        """
+            Set del atributo Q
+            *Modifica el atributo Q
+        """
         self.Q = Q
     
     def quickSortRandom(self, Q, inicio, final):
+        """
+            QuickSort Random
+            *Ordena los elementos de una lista creados aleatoriamente
+        """
         if Q!= None:
             # Definimos el caso base del quicksort
             if final == 1 or final == 0:
@@ -32,6 +45,10 @@ class QuickSort:
                 self.quickSortRandom(self.Q, indice + 1, final)
     
     def quickSort(self, Q, inicio, final):
+        """
+            QuickSort Normal
+            *Ordena los elementos de una lista
+        """
         if Q!= None:
             # Definimos el caso base del quicksort
             if  final == 1 or final == 0:
@@ -67,12 +84,19 @@ class QuickSort:
 
 
     def swap(self, Q, num1, num2):
-    
+        """
+            Método swap
+            *Intercambia dos elementos de la lista
+        """
         # definimos un método para hacer el intercambio
         self.Q[num1], self.Q[num2] = self.Q[num2], self.Q[num1]
         
         
     def quickSort_timing(self, start, stop, step):
+        """
+            Metodo de timing para el quickSort
+            *Imprime los tiempos de corrida del quickSort
+        """
         # Método de timing para el quickSort
         global t 
         t = self
@@ -90,7 +114,10 @@ class QuickSort:
         return results
     
     def quickSort_time_save(self, filename="datos/quickSort.csv", start=5, stop=100, step=5):
-        
+        """
+            Método guardar del quickSort
+            *Guarda los tiempos de corrida del quickSort
+        """
         # Método para guardar los resultados del timing
         results = self.quickSort_timing(start, stop, step)
     
@@ -104,7 +131,10 @@ class QuickSort:
                 writer.writerow([i, n, tn])
             
     def quickSort_rand_timing(self, start, stop, step):
-
+        """
+            Metodo de timing para el quickSort
+            *Imprime los tiempos de corrida del quickSort
+        """
         # Método de timing para el quickSort Random
         global b 
         b = self
@@ -122,7 +152,10 @@ class QuickSort:
         return results
     
     def quickSort_rand_time_save(self, filename="datos/quickSort_Random.csv", start=5, stop=100, step=5):
-        
+         """
+            Método guardar del quickSort Random
+            *Guarda los tiempos de corrida del quickSort
+        """
         # Método para guardar los resultados del timing
         results = self.quickSort_rand_timing(start, stop, step)
     
@@ -136,7 +169,9 @@ class QuickSort:
                 
         
     def graficar_quickSort(self):
-        
+        """
+            Gráfica los tiempos del quickSort
+        """
         # Método graficar el QuickSort:
   
         csvarchivo = open('datos/quickSort.csv')                
@@ -167,7 +202,9 @@ class QuickSort:
     
 
     def graficar_quickSort_Rand(self):
-        
+        """
+            Gráfica los tiempos del quickSort
+        """        
         # Método graficar el QuickSort Random:
   
         csvarchivo = open('datos/quickSort_Random.csv')                
@@ -198,7 +235,10 @@ class QuickSort:
 
         
     def timing_quickSort(self):
- 
+        """
+            Método del timing para el quickSort
+            *Crea los tiempos de corrida para el quickSort
+        """    
         if self.Q != None: 
             print("\n---- Caso específico: Q = {} ---- Posicion = 0\n".format(self.Q))
             cProfile.runctx('self.quickSort(self.Q, 0, len(self.Q)-1)', globals(),locals())
@@ -210,7 +250,10 @@ class QuickSort:
         print("\n Atención usuario, ha sido exportado el respectivo documento CSV con los resultados anteriores.")
         
     def timing_quickSort_Rand(self):
- 
+         """
+            Método del timing para el quickSort
+            *Crea los tiempos de corrida para el quickSort
+        """   
         if self.Q != None: 
             print("\n---- Caso específico: Q = {} ---- Posicion = 0\n".format(self.Q))
             cProfile.runctx('self.quickSort(self.Q, 0, len(self.Q)-1)', globals(),locals())
