@@ -78,20 +78,25 @@ class Control:
                 os.system("cls")
                 qs.quickSortRandom(a,0,len(a)-1)
                 print(a)
+                input("\nPresione TECLA para continuar...")                 
             elif opc2 == 3:
                 os.system("cls")
                 qs.quickSort(a,0,len(a)-1)
                 print(a)
+                input("\nPresione TECLA para continuar...")                
             elif opc2 == 4:
                 os.system("cls")
                 qs.timing_quickSort()
+                input("\nPresione TECLA para continuar...")                 
             elif opc2 == 5:
                 os.system("cls")
                 qs.timing_quickSort_Rand()
+                input("\nPresione TECLA para continuar...")                
             elif opc2 == 6:
                 os.system("cls")
                 qs.quickSort_rand_time_save()
                 qs.quickSort_time_save()
+                input("\nPresione TECLA para continuar...")                 
 
             #qs.quickSort()
             #------------------------------------------------------- Fin bloque de evaluación.

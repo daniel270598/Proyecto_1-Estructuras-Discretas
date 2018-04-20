@@ -198,7 +198,7 @@ class QuickSort:
  
         if self.Q != None: 
             print("\n---- Caso específico: Q = {} ---- Posicion = 0\n".format(self.Q))
-            cProfile.runctx('self.quickSort(self.Q, 0)', globals(),locals())
+            cProfile.runctx('self.quickSort(self.Q, 0, len(Q)-1)', globals(),locals())
         print("\n---- Ahora casos varios con elementos aleatorios ----\n")
         self.quickSort_time_save()              # Llama para probar timing diferentes casos.
         self.graficar_quickSort()                  # Llama para mostrar una gráfica.
@@ -210,7 +210,7 @@ class QuickSort:
  
         if self.Q != None: 
             print("\n---- Caso específico: Q = {} ---- Posicion = 0\n".format(self.Q))
-            cProfile.runctx('self.quickSort(self.Q, 0)', globals(),locals())
+            cProfile.runctx('self.quickSort(self.Q, 0, len(Q)-1)', globals(),locals())
         print("\n---- Ahora casos varios con elementos aleatorios ----\n")
         self.quickSort_rand_time_save()              # Llama para probar timing diferentes casos.
         self.graficar_quickSort_Rand()                  # Llama para mostrar una gráfica.
