@@ -4,7 +4,7 @@
 """
 
 from Interfaz import Interfaz                                       # Importa la clase Interfaz.
-import QuickSort                                                    # Importa el Quicksort.
+from QuickSort import QuickSort                                     # Importa el Quicksort.
 from Medians import Medianas                                        # Importa el módulo Medianas la clase Medianas.
 import os                                                           # Importa para accesar al sistema.
 import msvcrt                                                       # Importa.
@@ -62,15 +62,42 @@ class Control:
     # -------------------------------------------------------------- Método el cual permite manejar el menu - quicksort.
     def control_menu_Quicksort(self):
         opc2 = 0                                                    # Inicializa opc2.
-        cInterfaz = Interfaz()                                      # Creo el objeto Interfaz.
+        cInterfaz = Interfaz()  
+        qs = QuickSort()                                    # Creo el objeto Interfaz.
         #___________________________________________________________ Inicio del ciclo while - Iterar menú.
-        while (opc2 != 4): # ///////////// Numero a poner el de la opcion SALIR ///////////////////////
-            os.system('cls')                                        # Limpia pantalla
+        while (opc2 != 7): # ///////////// Numero a poner el de la opcion SALIR ///////////////////////
+            os.system('cls')                                            # Limpia pantalla
             cInterfaz.menu_Quicksort()                              # Llama método externo.
             opc2 = int(input("\nIngrese la opcion: "))              # Aquí almacenamos en opc2 lo que digite el usuario.
             #------------------------------------------------------- Bloque de evaluación para menu quicksort.
             if opc2 == 1:
-                os.system("cls")                                    # Limpia pantalla
+                os.system("cls")
+                a = self.crearLista()
+                qs = QuickSort(a)
+            elif opc2 == 2:
+                os.system("cls")
+                qs.quickSortRandom(a,0,len(a)-1)
+                print(a)
+                input("\nPresione TECLA para continuar...")                 
+            elif opc2 == 3:
+                os.system("cls")
+                qs.quickSort(a,0,len(a)-1)
+                print(a)
+                input("\nPresione TECLA para continuar...")                
+            elif opc2 == 4:
+                os.system("cls")
+                qs.timing_quickSort()
+                input("\nPresione TECLA para continuar...")                 
+            elif opc2 == 5:
+                os.system("cls")
+                qs.timing_quickSort_Rand()
+                input("\nPresione TECLA para continuar...")                
+            elif opc2 == 6:
+                os.system("cls")
+                qs.quickSort_rand_time_save()
+                qs.quickSort_time_save()
+                input("\nPresione TECLA para continuar...")                 
+
             #qs.quickSort()
             #------------------------------------------------------- Fin bloque de evaluación.
             #_______________________________________________________ Fin bloque while.
