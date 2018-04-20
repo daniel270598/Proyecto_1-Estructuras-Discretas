@@ -4,7 +4,7 @@
 """
 
 from Interfaz import Interfaz                                       # Importa la clase Interfaz.
-                                                   # Importa el Quicksort.
+from QuickSort import QuickSort                                     # Importa el Quicksort.
 from Medians import Medianas                                        # Importa el módulo Medianas la clase Medianas.
 import os                                                           # Importa para accesar al sistema.
 import msvcrt                                                       # Importa.
@@ -65,7 +65,7 @@ class Control:
         cInterfaz = Interfaz()  
         qs = QuickSort()                                    # Creo el objeto Interfaz.
         #___________________________________________________________ Inicio del ciclo while - Iterar menú.
-        while (opc2 != 4): # ///////////// Numero a poner el de la opcion SALIR ///////////////////////
+        while (opc2 != 7): # ///////////// Numero a poner el de la opcion SALIR ///////////////////////
             os.system('cls')                                            # Limpia pantalla
             cInterfaz.menu_Quicksort()                              # Llama método externo.
             opc2 = int(input("\nIngrese la opcion: "))              # Aquí almacenamos en opc2 lo que digite el usuario.
@@ -83,8 +83,15 @@ class Control:
                 qs.quickSort(a,0,len(a)-1)
                 print(a)
             elif opc2 == 4:
-                os.system("cls")                
-
+                os.system("cls")
+                qs.timing_quickSort()
+            elif opc2 == 5:
+                os.system("cls")
+                qs.timing_quickSort_Rand()
+            elif opc2 == 6:
+                os.system("cls")
+                qs.quickSort_rand_time_save()
+                qs.quickSort_time_save()
 
             #qs.quickSort()
             #------------------------------------------------------- Fin bloque de evaluación.
