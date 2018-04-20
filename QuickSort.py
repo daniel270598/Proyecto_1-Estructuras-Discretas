@@ -152,7 +152,7 @@ class QuickSort:
         return results
     
     def quickSort_rand_time_save(self, filename="datos/quickSort_Random.csv", start=5, stop=100, step=5):
-         """
+        """
             Método guardar del quickSort Random
             *Guarda los tiempos de corrida del quickSort
         """
@@ -250,7 +250,7 @@ class QuickSort:
         print("\n Atención usuario, ha sido exportado el respectivo documento CSV con los resultados anteriores.")
         
     def timing_quickSort_Rand(self):
-         """
+        """
             Método del timing para el quickSort
             *Crea los tiempos de corrida para el quickSort
         """   
