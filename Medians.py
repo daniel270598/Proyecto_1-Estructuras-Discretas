@@ -58,8 +58,6 @@ class Medianas:
         print("\n---- Ahora casos varios con elementos aleatorios ----\n")
         self.exportar_Median_of_Medians_CSV()                       # Llama para probar timing diferentes casos.
         self.graficar_Median_of_Medians()                           # Llama para mostrar una gráfica.
-        self.A.clear()                                              # Elimina los elementos en A.
-        self.A = None                                               # Le asigna a A None(NULL).
         print("\n Atención usuario, ha sido exportado el respectivo documento CSV con los resultados anteriores.")
         pass
 
