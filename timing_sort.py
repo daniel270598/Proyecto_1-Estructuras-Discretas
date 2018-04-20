@@ -12,7 +12,7 @@ def timing_sort(start, stop, step):
         results.append((size, tn))
     return results
 
-def sort_time_save(filename="data/sort5.csv", start=10, stop=1000, step=100):
+def sort_time_save(filename="datos/sort5.csv", start=10, stop=1000, step=100):
     results = timing_sort(start, stop, step)
     with open(filename, 'w', newline='') as csvfile:
         writer = csv.writer(csvfile, delimiter=';',quotechar='|', quoting=csv.QUOTE_MINIMAL)

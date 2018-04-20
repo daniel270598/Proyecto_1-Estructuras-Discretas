@@ -65,8 +65,13 @@ class Control:
         cInterfaz = Interfaz()  
         qs = QuickSort()                                    # Creo el objeto Interfaz.
         #___________________________________________________________ Inicio del ciclo while - Iterar menú.
+<<<<<<< HEAD
         while (opc2 != 7): # ///////////// Numero a poner el de la opcion SALIR ///////////////////////
             os.system('cls')                                            # Limpia pantalla
+=======
+        while (opc2 != 4): # ///////////// Numero a poner el de la opcion SALIR ///////////////////////
+            os.system('cls')                                        # Limpia pantalla
+>>>>>>> origin/Control
             cInterfaz.menu_Quicksort()                              # Llama método externo.
             opc2 = int(input("\nIngrese la opcion: "))              # Aquí almacenamos en opc2 lo que digite el usuario.
             #------------------------------------------------------- Bloque de evaluación para menu quicksort.
@@ -102,7 +107,7 @@ class Control:
     def control_menu_Medians(self):
         opc2 = 0                                                    # Inicializa opc2.
         cInterfaz = Interfaz()                                      # Creo el objeto Interfaz.
-        ms = Medianas()
+        ms = Medianas([5,6,4,8,3,12,2,9,1,15])                      # Crea ms de tipo Medianas.
         #___________________________________________________________ Inicio del ciclo while - Iterar menú.
         while (opc2 != 6):
             os.system('cls')                                        # Limpia pantalla.
@@ -111,20 +116,28 @@ class Control:
             #------------------------------------------------------- Bloque de evaluación para menu quicksort.
             if opc2 == 1:                                           # Opción crear Lista.
                 a = self.crearLista()
-                ms = Medianas(a)                                    # Creamos un objeto para interactuar con la clase Medians.
+                ms.set_A(a)                                         # Cambiamos la lista en el objeto ms (Medianas).
             elif opc2 == 2:                                         # Opción Probar Medianas.
                 os.system("cls")
-                ms.median_of_medians(a,len(a)//2)
+                print("---- Calculando Mediana ----")
+                print("\n Lista actual = {}\t Cantidad = {}".format(ms.A,len(ms.A)))
+                indice = int(input("\n Indice a buscar (0-{}): ".format(len(ms.A))))
+                print("\n Resultado de la Mediana = {}".format(ms.median_of_medians(ms.A,indice)))
+                input("\nPresione TECLA para continuar...")         # Solo para visualizar resultado.
             elif opc2 == 3:                                         # Opción Probar Sort5.
                 os.system("cls")
-                ms.sort(a)
+                print("---- Calculando Mediana ----")
+                print("\n Lista actual = {}\t Cantidad = {}".format(ms.A,len(ms.A)))
+                print("\n Lista Ordenada: {}".format(ms.sort(ms.A)))
+                input("\nPresione TECLA para continuar...")         # Solo para visualizar resultado.
             elif opc2 == 4:                                         # Opción Timing Medianas.
                 os.system("cls")
                 ms.timing_Median_of_Medians()                       # Llama un método externo.
                 input("\nPresione TECLA para continuar...")         # Solo para visualizar resultado.
             elif opc2 == 5:                                         # Opción Timing Sort5.
                 os.system("cls")
-                
+                ms.timing_Sort_5()                                  # Llama un método externo.
+                input("\nPresione TECLA para continuar...")         # Solo para visualizar resultado.
             #------------------------------------------------------- Fin bloque de evaluación.
         #___________________________________________________________ Fin bloque while.
         pass
