@@ -77,24 +77,29 @@ class Control:
                 qs.setQ(a)
             elif opc2 == 2:
                 os.system("cls")
+                print("---- Ordenando Lista ----")
                 qs.quickSortRandom(qs.Q,0,len(qs.Q)-1)
                 print(qs.Q)
                 input("\nPresione TECLA para continuar...")                 
             elif opc2 == 3:
                 os.system("cls")
+                print("---- Ordenando Lista ----")
                 qs.quickSort(qs.Q,0,len(qs.Q)-1)
                 print(qs.Q)
                 input("\nPresione TECLA para continuar...")                
             elif opc2 == 4:
                 os.system("cls")
+                print("---- Timing del QuickSort ----")
                 qs.timing_quickSort_Rand()
                 input("\nPresione TECLA para continuar...")                 
             elif opc2 == 5:
                 os.system("cls")
+                print("---- Timing del QuickSort ----")
                 qs.timing_quickSort()
                 input("\nPresione TECLA para continuar...")                
             elif opc2 == 6:
                 os.system("cls")
+                print("---- Guardadndo csv del QuickSort ----")
                 qs.quickSort_rand_time_save()
                 qs.quickSort_time_save()
                 input("\nPresione TECLA para continuar...")                 
