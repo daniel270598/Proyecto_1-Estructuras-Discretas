@@ -20,13 +20,13 @@ class QuickSort:
 
                 # Alteramos al final para que sea random porqué después será el pivote en ordenar 
                 final_alter = random.randrange(inicio, final)
-                self.swap(Q, final, final_alter)
+                self.swap(self.Q, final, final_alter)
         
                 # Se obtiene la posición del pivote y se ordena según el pivote
-                indice = self.ordenar(Q, inicio, final)
+                indice = self.ordenar(self.Q, inicio, final)
         
-                self.quickSortRandom(Q, inicio, indice - 1)
-                self.quickSortRandom(Q, indice + 1, final)
+                self.quickSortRandom(self.Q, inicio, indice - 1)
+                self.quickSortRandom(self.Q, indice + 1, final)
     
     def quickSort(self, Q, inicio, final):
         if Q!= None:
@@ -37,10 +37,10 @@ class QuickSort:
             if inicio < final:
         
                 # Se obtiene la posición del pivote y se ordena según el pivote
-                indice = self.ordenar(Q, inicio, final)
+                indice = self.ordenar(self.Q, inicio, final)
 
-                self.quickSort(Q, inicio, indice - 1)
-                self.quickSort(Q, indice + 1, final)
+                self.quickSort(self.Q, inicio, indice - 1)
+                self.quickSort(self.Q, indice + 1, final)
 
     def ordenar(self, Q, inicio, final):
     
@@ -52,41 +52,41 @@ class QuickSort:
         while indice2 < final:
 
             # Si hay menores que el pivote un indice los mueve de primeros 
-            if Q[pivot] > Q[indice2]:
-                self.swap(Q, indice, indice2)
+            if self.Q[pivot] > self.Q[indice2]:
+                self.swap(self.Q, indice, indice2)
                 indice += 1
             indice2 +=1
     
         # Como el pivote es el ultimo lo movemos a donde está el indice
         # para ubicarlo en su posicion correcta en el arreglo
-        self.swap(Q,indice,pivot)
+        self.swap(self.Q,indice,pivot)
         return indice
 
 
     def swap(self, Q, num1, num2):
     
         # definimos un método para hacer el intercambio
-        Q[num1], Q[num2] = Q[num2], Q[num1]
+        self.Q[num1], self.Q[num2] = self.Q[num2], self.Q[num1]
         
         
     def quickSort_timing(self, start, stop, step):
         # Método de timing para el quickSort
-        global a
-        a = self
+        global t 
+        t = self
         results = []
         population = list(range(0, stop))
-
+    
         for n in range(start, stop, step):
-        
+
             size = start + n
-            a = random.sample(population, size)
+            t.Q = random.sample(population, size)
             print("Size={}".format(size))
-            tn = timeit.timeit("QuickSort.quickSort(a, 0, len(a)-1)", number=500, globals=globals())
-        
+            tn = timeit.timeit("t.quickSort(t.Q, 0, len(t.Q)-1)", number=500, globals=globals())
+            
             results.append((size, tn))
         return results
     
-    def quickSort_time_save(self, filename="quickSort.csv", start=10, stop=1000, step=100):
+    def quickSort_time_save(self, filename="datos/quickSort.csv", start=5, stop=100, step=5):
         
         # Método para guardar los resultados del timing
         results = self.quickSort_timing(start, stop, step)
@@ -111,14 +111,14 @@ class QuickSort:
         for n in range(start, stop, step):
 
             size = start + n
-            b = random.sample(population, size)
+            b.Q = random.sample(population, size)
             print("Size={}".format(size))
-            tn = timeit.timeit("QuickSort.quickSortRandom(b, 0, len(b)-1)", number=500, globals=globals())
+            tn = timeit.timeit("b.quickSortRandom(b.Q, 0, len(b.Q)-1)", number=500, globals=globals())
             
             results.append((size, tn))
         return results
     
-    def quickSort_rand_time_save(self, filename="quickSort_Random.csv", start=5, stop=100, step=5):
+    def quickSort_rand_time_save(self, filename="datos/quickSort_Random.csv", start=5, stop=100, step=5):
         
         # Método para guardar los resultados del timing
         results = self.quickSort_rand_timing(start, stop, step)
@@ -136,7 +136,7 @@ class QuickSort:
         
         # Método graficar el QuickSort:
   
-        csvarchivo = open('Cuadernos/quickSort.csv')                
+        csvarchivo = open('datos/quickSort.csv')                
         cont = 0                                                    
         
         if csvarchivo:
@@ -167,7 +167,7 @@ class QuickSort:
         
         # Método graficar el QuickSort Random:
   
-        csvarchivo = open('Cuadernos/quickSort_Rand.csv')                
+        csvarchivo = open('datos/quickSort_Random.csv')                
         cont = 0                                                    
         
         if csvarchivo:
@@ -198,7 +198,7 @@ class QuickSort:
  
         if self.Q != None: 
             print("\n---- Caso específico: Q = {} ---- Posicion = 0\n".format(self.Q))
-            cProfile.runctx('self.quickSort(self.Q, 0, len(Q)-1)', globals(),locals())
+            cProfile.runctx('self.quickSort(self.Q, 0, len(self.Q)-1)', globals(),locals())
         print("\n---- Ahora casos varios con elementos aleatorios ----\n")
         self.quickSort_time_save()              # Llama para probar timing diferentes casos.
         self.graficar_quickSort()                  # Llama para mostrar una gráfica.
@@ -210,7 +210,7 @@ class QuickSort:
  
         if self.Q != None: 
             print("\n---- Caso específico: Q = {} ---- Posicion = 0\n".format(self.Q))
-            cProfile.runctx('self.quickSort(self.Q, 0, len(Q)-1)', globals(),locals())
+            cProfile.runctx('self.quickSort(self.Q, 0, len(self.Q)-1)', globals(),locals())
         print("\n---- Ahora casos varios con elementos aleatorios ----\n")
         self.quickSort_rand_time_save()              # Llama para probar timing diferentes casos.
         self.graficar_quickSort_Rand()                  # Llama para mostrar una gráfica.

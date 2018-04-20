@@ -86,11 +86,11 @@ class Control:
                 input("\nPresione TECLA para continuar...")                
             elif opc2 == 4:
                 os.system("cls")
-                qs.timing_quickSort()
+                qs.timing_quickSort_Rand()
                 input("\nPresione TECLA para continuar...")                 
             elif opc2 == 5:
                 os.system("cls")
-                qs.timing_quickSort_Rand()
+                qs.timing_quickSort()
                 input("\nPresione TECLA para continuar...")                
             elif opc2 == 6:
                 os.system("cls")
